@@ -4,6 +4,5 @@ namespace Cake.Systemctl.Settings
 {
     public abstract class SystemctlSettings : ToolSettings
     {
-        
     }
 }

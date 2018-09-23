@@ -9,26 +9,23 @@ using Cake.Systemctl.Settings;
 namespace Cake.Systemctl.Runners
 {
     /// <summary>
-    /// The runner for 'list-unit-files' command
+    ///     The runner for 'list-unit-files' command
     /// </summary>
     public class ListUnitFilesRunner : SystemctlRunner<ListUnitFilesSettings>
     {
-        public List<UnitFile> UnitFiles { get; private set; }
-
         public ListUnitFilesRunner(IFileSystem fileSystem, ICakeEnvironment environment, IProcessRunner processRunner,
             IToolLocator tools) : base(fileSystem, environment, processRunner, tools)
         {
         }
+
+        public List<UnitFile> UnitFiles { get; private set; }
 
         protected override void InternalRun(ListUnitFilesSettings settings)
         {
             var arguments = new ProcessArgumentBuilder()
                 .Append("list-unit-files");
 
-            if (!string.IsNullOrWhiteSpace(settings.State))
-            {
-                arguments.Append($"--state={settings.State}");
-            }
+            if (!string.IsNullOrWhiteSpace(settings.State)) arguments.Append($"--state={settings.State}");
 
             Run(settings, arguments, new ProcessSettings {RedirectStandardOutput = true, RedirectStandardError = true},
                 Handle);

@@ -1,11 +1,11 @@
 namespace Cake.Systemctl.Settings
 {
     /// <summary>
-    /// Settings for 'list-unit-files' command
+    ///     Settings for 'list-unit-files' command
     /// </summary>
-    public class ListUnitFilesSettings: SystemctlSettings, IStateFilter
+    public class ListUnitFilesSettings : SystemctlSettings, IStateFilter
     {
-        /// <inheritdoc/>
+        /// <inheritdoc />
         public string State { get; set; }
     }
 }

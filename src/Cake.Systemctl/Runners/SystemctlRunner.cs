@@ -10,26 +10,30 @@ namespace Cake.Systemctl.Runners
     public abstract class SystemctlRunner<TSettings> : Tool<TSettings>
         where TSettings : SystemctlSettings
     {
-        private ICakePlatform Platform { get; }
-        
         protected SystemctlRunner(IFileSystem fileSystem, ICakeEnvironment environment, IProcessRunner processRunner,
             IToolLocator tools) : base(fileSystem, environment, processRunner, tools)
         {
             Platform = environment.Platform;
         }
 
-        protected override string GetToolName() => "systemctl";
-        protected override IEnumerable<string> GetToolExecutableNames() => new[] { "systemctl" };
+        private ICakePlatform Platform { get; }
+
+        protected override string GetToolName()
+        {
+            return "systemctl";
+        }
+
+        protected override IEnumerable<string> GetToolExecutableNames()
+        {
+            return new[] {"systemctl"};
+        }
 
         public void Run(TSettings settings)
         {
             if (settings == null) throw new ArgumentNullException(nameof(settings));
-            
-            if (!Platform.IsUnix())
-            {
-                throw new PlatformNotSupportedException();
-            }
-            
+
+            if (!Platform.IsUnix()) throw new PlatformNotSupportedException();
+
             InternalRun(settings);
         }
 

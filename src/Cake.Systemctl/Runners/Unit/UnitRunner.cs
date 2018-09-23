@@ -21,9 +21,7 @@ namespace Cake.Systemctl.Runners.Unit
                 .Append(UnitCommand);
 
             if (string.IsNullOrWhiteSpace(settings.UnitName))
-            {
                 throw new ArgumentNullException(nameof(settings.UnitName), "The name of unit should be specified");
-            }
 
             builder.Append(settings.UnitName);
 

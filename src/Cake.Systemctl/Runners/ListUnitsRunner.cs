@@ -8,37 +8,28 @@ using Cake.Systemctl.Settings;
 namespace Cake.Systemctl.Runners
 {
     /// <summary>
-    /// The runner for 'list-units' command
+    ///     The runner for 'list-units' command
     /// </summary>
     public class ListUnitsRunner : SystemctlRunner<ListUnitsSettings>
     {
-        public List<Models.Unit> Units { get; private set; }
-
         public ListUnitsRunner(IFileSystem fileSystem, ICakeEnvironment environment, IProcessRunner processRunner,
             IToolLocator tools) : base(fileSystem, environment, processRunner, tools)
         {
         }
+
+        public List<Models.Unit> Units { get; private set; }
 
         protected override void InternalRun(ListUnitsSettings settings)
         {
             var arguments = new ProcessArgumentBuilder()
                 .Append("list-units");
 
-            if (settings.All)
-            {
-                arguments.Append("--all");
-            }
+            if (settings.All) arguments.Append("--all");
 
-            if (!string.IsNullOrWhiteSpace(settings.State))
-            {
-                arguments.Append($"--state={settings.State}");
-            }
+            if (!string.IsNullOrWhiteSpace(settings.State)) arguments.Append($"--state={settings.State}");
 
-            if (!string.IsNullOrWhiteSpace(settings.Type))
-            {
-                arguments.Append($"--type={settings.Type}");
-            }
-            
+            if (!string.IsNullOrWhiteSpace(settings.Type)) arguments.Append($"--type={settings.Type}");
+
             Run(settings, arguments, new ProcessSettings {RedirectStandardOutput = true, RedirectStandardError = true},
                 Handle);
         }

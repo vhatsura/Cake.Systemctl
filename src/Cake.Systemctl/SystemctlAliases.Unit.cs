@@ -8,7 +8,7 @@ namespace Cake.Systemctl
     public static partial class SystemctlAliases
     {
         /// <summary>
-        /// Start (activate) unit.
+        ///     Start (activate) unit.
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="settings">The settings of unit to start.</param>
@@ -17,12 +17,12 @@ namespace Cake.Systemctl
         {
             var runner = new StartUnitRunner(context.FileSystem, context.Environment, context.ProcessRunner,
                 context.Tools);
-            
+
             runner.Run(settings);
         }
 
         /// <summary>
-        /// Stop (deactivate) unit.
+        ///     Stop (deactivate) unit.
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="settings">The settings of unit to stop.</param>
@@ -31,8 +31,8 @@ namespace Cake.Systemctl
         {
             var runner = new StopUnitRunner(context.FileSystem, context.Environment, context.ProcessRunner,
                 context.Tools);
-            
+
             runner.Run(settings);
-        }        
+        }
     }
 }
