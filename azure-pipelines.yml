@@ -8,5 +8,6 @@ pool:
 
 steps:
 - script: |
+    chmod +x ./build/build.sh
     ./build/build.sh
   displayName: 'Run a build.cake script'
