@@ -2,6 +2,14 @@
 
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
+        <Authors>Vadim Hatsura</Authors>
+        <Description>Cake AddIn for managing services with systemctl service manager</Description>
+        <PackageTags>Cake, Script, Build, Systemctl</PackageTags>
+        <Copyright>Copyright (c) 2018 - Present</Copyright>
+        <PackageProjectUrl>https://github.com/vhatsura/Cake.Systemctl</PackageProjectUrl>
+        <PackageLicenseUrl>https://github.com/vhatsura/Cake.Systemctl/blob/master/LICENSE</PackageLicenseUrl>
+        <Company />
+        <Product />
     </PropertyGroup>
 
     <ItemGroup>
