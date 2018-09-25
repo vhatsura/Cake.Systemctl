@@ -1,9 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
 using Cake.Core;
 using Cake.Core.Annotations;
-using Cake.Systemctl.Models;
-using Cake.Systemctl.Runners;
-using Cake.Systemctl.Settings;
 
 namespace Cake.Systemctl
 {
@@ -15,9 +12,15 @@ namespace Cake.Systemctl
     [CakeAliasCategory("Systemctl")]
     [CakeNamespaceImport("Cake.Systemctl.Models")]
     [CakeNamespaceImport("Cake.Systemctl.Settings")]
-    public static partial class SystemctlAliases
+    public static class SystemctlAliases
     {
-        [CakeMethodAlias]
-        public static SystemctlRunner Systemctl(this ICakeContext context) => new SystemctlRunner(context);
+        [CakePropertyAlias]
+        public static SystemctlRunner Systemctl(this ICakeContext context)
+        {
+            if (context == null)
+                throw new ArgumentNullException(nameof(context));
+
+            return new SystemctlRunner(context);
+        }
     }
 }
