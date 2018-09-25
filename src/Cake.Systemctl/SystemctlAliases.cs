@@ -13,6 +13,8 @@ namespace Cake.Systemctl
     ///     <see cref="https://www.freedesktop.org/software/systemd/man/systemctl.html">systemctl</see> operations
     /// </summary>
     [CakeAliasCategory("Systemctl")]
+    [CakeNamespaceImport("Cake.Systemctl.Models")]
+    [CakeNamespaceImport("Cake.Systemctl.Settings")]
     public static partial class SystemctlAliases
     {
         [CakeMethodAlias]
