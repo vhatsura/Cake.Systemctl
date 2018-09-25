@@ -6,7 +6,7 @@ using Cake.Systemctl.Settings;
 
 namespace Cake.Systemctl.Runners.Unit
 {
-    public abstract class UnitRunner : SystemctlRunner<UnitSettings>
+    public abstract class UnitRunner : SystemctlOperationRunner<UnitSettings>
     {
         protected UnitRunner(IFileSystem fileSystem, ICakeEnvironment environment, IProcessRunner processRunner,
             IToolLocator tools) : base(fileSystem, environment, processRunner, tools)
