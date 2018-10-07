@@ -4,10 +4,11 @@
 # https://aka.ms/yaml
 
 pool:
-  vmImage: 'Ubuntu 16.04'
+  vmImage: 'vs2017-win2016'
+sign: true
 
 steps:
 - script: |
-    chmod +x ./build/build.sh
-    ./build/build.sh
+    cd ./build
+    powershell ./build.ps1
   displayName: 'Run a build.cake script'
