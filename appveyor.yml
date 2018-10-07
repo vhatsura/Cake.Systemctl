@@ -8,6 +8,14 @@ build_script:
 
 # Tests
 test: off
+=======
+  -ps: >-
+    cd .\build
+    .\build.ps1 -Target AppVeyor
+>>>>>>> develop:appveyor.yml
+
+# Tests
+test: off
 
 #---------------------------------#
 #        Branches to build        #
@@ -18,4 +26,4 @@ branches:
     - develop
     - master
     - /release/.*/
-    - /hotfix/.*/
+    - appveyor
