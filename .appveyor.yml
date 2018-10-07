@@ -1,0 +1,16 @@
+#---------------------------------#
+#  Build Script                   #
+#---------------------------------#
+build_script:
+  -ps: .\build\build.ps1 -Target AppVeyor
+
+#---------------------------------#
+#        Branches to build        #
+#---------------------------------#
+branches:
+  # Whitelist
+  only:
+    - develop
+    - master
+    - /release/.*/
+    - /hotfix/.*/
