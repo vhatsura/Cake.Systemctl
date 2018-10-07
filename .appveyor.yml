@@ -2,7 +2,9 @@
 #  Build Script                   #
 #---------------------------------#
 build_script:
-  -ps: .\build\build.ps1 -Target AppVeyor
+  -ps: |
+    cd .\build
+    .\build.ps1 -Target AppVeyor
 
 #---------------------------------#
 #        Branches to build        #
