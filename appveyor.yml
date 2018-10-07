@@ -6,6 +6,9 @@ build_script:
     cd .\build
     .\build.ps1 -Target AppVeyor
 
+# Tests
+test: off
+
 #---------------------------------#
 #        Branches to build        #
 #---------------------------------#
@@ -16,3 +19,4 @@ branches:
     - master
     - /release/.*/
     - /hotfix/.*/
+    - appveyor
