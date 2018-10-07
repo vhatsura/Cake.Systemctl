@@ -2,9 +2,9 @@
 #  Build Script                   #
 #---------------------------------#
 build_script:
-  -ps: >-
-    cd .\build
-    .\build.ps1 -Target AppVeyor
+-ps: >-
+  cd .\build
+  .\build.ps1 -Target AppVeyor
 
 # Tests
 test: off
