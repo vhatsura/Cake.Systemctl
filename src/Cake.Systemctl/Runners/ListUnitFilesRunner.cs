@@ -11,7 +11,7 @@ namespace Cake.Systemctl.Runners
     /// <summary>
     ///     The runner for 'list-unit-files' command
     /// </summary>
-    public class ListUnitFilesRunner : SystemctlRunner<ListUnitFilesSettings>
+    public class ListUnitFilesRunner : SystemctlOperationRunner<ListUnitFilesSettings>
     {
         public ListUnitFilesRunner(IFileSystem fileSystem, ICakeEnvironment environment, IProcessRunner processRunner,
             IToolLocator tools) : base(fileSystem, environment, processRunner, tools)

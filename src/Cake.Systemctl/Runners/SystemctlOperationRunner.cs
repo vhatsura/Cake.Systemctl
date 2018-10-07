@@ -7,10 +7,10 @@ using Cake.Systemctl.Settings;
 
 namespace Cake.Systemctl.Runners
 {
-    public abstract class SystemctlRunner<TSettings> : Tool<TSettings>
-        where TSettings : SystemctlSettings
+    public abstract class SystemctlOperationRunner<TSettings> : Tool<TSettings>
+        where TSettings : SystemctlOperationSettings
     {
-        protected SystemctlRunner(IFileSystem fileSystem, ICakeEnvironment environment, IProcessRunner processRunner,
+        protected SystemctlOperationRunner(IFileSystem fileSystem, ICakeEnvironment environment, IProcessRunner processRunner,
             IToolLocator tools) : base(fileSystem, environment, processRunner, tools)
         {
             Platform = environment.Platform;

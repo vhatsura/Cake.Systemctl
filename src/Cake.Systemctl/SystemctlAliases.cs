@@ -1,9 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
 using Cake.Core;
 using Cake.Core.Annotations;
-using Cake.Systemctl.Models;
-using Cake.Systemctl.Runners;
-using Cake.Systemctl.Settings;
 
 namespace Cake.Systemctl
 {
@@ -13,61 +10,17 @@ namespace Cake.Systemctl
     ///     <see cref="https://www.freedesktop.org/software/systemd/man/systemctl.html">systemctl</see> operations
     /// </summary>
     [CakeAliasCategory("Systemctl")]
-    public static partial class SystemctlAliases
+    [CakeNamespaceImport("Cake.Systemctl.Models")]
+    [CakeNamespaceImport("Cake.Systemctl.Settings")]
+    public static class SystemctlAliases
     {
-        /// <summary>
-        ///     List units that currently was loaded to memory.
-        /// </summary>
-        /// <param name="context">The context.</param>
-        /// <returns>A list of units.</returns>
-        public static List<Unit> ListUnits(this ICakeContext context)
+        [CakePropertyAlias]
+        public static SystemctlRunner Systemctl(this ICakeContext context)
         {
-            return ListUnits(context, new ListUnitsSettings());
-        }
+            if (context == null)
+                throw new ArgumentNullException(nameof(context));
 
-        /// <summary>
-        ///     List units that currently was loaded to memory.
-        /// </summary>
-        /// <param name="context">The context.</param>
-        /// <param name="settings">The settings</param>
-        /// <returns>A list of units.</returns>
-        [CakeMethodAlias]
-        public static List<Unit> ListUnits(this ICakeContext context, ListUnitsSettings settings)
-        {
-            var runner = new ListUnitsRunner(context.FileSystem, context.Environment, context.ProcessRunner,
-                context.Tools);
-
-            runner.Run(settings);
-
-            return runner.Units;
-        }
-
-        /// <summary>
-        ///     List unit files installed on the system.
-        /// </summary>
-        /// <param name="context">The context.</param>
-        /// <returns>A list of unit files</returns>
-        [CakeMethodAlias]
-        public static List<UnitFile> ListUnitFiles(this ICakeContext context)
-        {
-            return ListUnitFiles(context, new ListUnitFilesSettings());
-        }
-
-        /// <summary>
-        ///     List unit files installed on the system.
-        /// </summary>
-        /// <param name="context">The context.</param>
-        /// <param name="settings">The settings</param>
-        /// <returns>A list of unit files.</returns>
-        [CakeMethodAlias]
-        public static List<UnitFile> ListUnitFiles(this ICakeContext context, ListUnitFilesSettings settings)
-        {
-            var runner = new ListUnitFilesRunner(context.FileSystem, context.Environment, context.ProcessRunner,
-                context.Tools);
-
-            runner.Run(settings);
-
-            return runner.UnitFiles;
+            return new SystemctlRunner(context);
         }
     }
 }

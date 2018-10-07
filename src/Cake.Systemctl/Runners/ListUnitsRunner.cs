@@ -10,7 +10,7 @@ namespace Cake.Systemctl.Runners
     /// <summary>
     ///     The runner for 'list-units' command
     /// </summary>
-    public class ListUnitsRunner : SystemctlRunner<ListUnitsSettings>
+    public class ListUnitsRunner : SystemctlOperationRunner<ListUnitsSettings>
     {
         public ListUnitsRunner(IFileSystem fileSystem, ICakeEnvironment environment, IProcessRunner processRunner,
             IToolLocator tools) : base(fileSystem, environment, processRunner, tools)

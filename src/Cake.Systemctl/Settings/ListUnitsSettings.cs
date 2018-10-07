@@ -3,7 +3,7 @@ namespace Cake.Systemctl.Settings
     /// <summary>
     ///     Settings for 'list-units' command
     /// </summary>
-    public class ListUnitsSettings : SystemctlSettings, IStateFilter
+    public class ListUnitsSettings : SystemctlOperationSettings, IStateFilter
     {
         /// <summary>
         ///     true to also show inactive units and units which are following other units
