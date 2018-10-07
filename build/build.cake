@@ -8,6 +8,8 @@ BuildParameters.SetParameters(context: Context,
                             rootDirectoryPath: "../",
                             solutionFilePath: "../cake.systemctl.sln",
                             title: "Cake.Systemctl",
+                            repositoryOwner: "vhatsura",
+                            repositoryName: "Cake.Systemctl",
                             shouldRunGitVersion: true,
                             shouldRunDotNetCorePack: true);
 
