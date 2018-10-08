@@ -4,9 +4,8 @@ Environment.SetVariableNames();
 
 BuildParameters.SetParameters(context: Context,
                             buildSystem: BuildSystem,
-                            sourceDirectoryPath: "../src",
-                            rootDirectoryPath: "../",
-                            solutionFilePath: "../cake.systemctl.sln",
+                            sourceDirectoryPath: "./src",
+                            solutionFilePath: "./cake.systemctl.sln",
                             title: "Cake.Systemctl",
                             repositoryOwner: "vhatsura",
                             repositoryName: "Cake.Systemctl",
