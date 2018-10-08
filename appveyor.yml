@@ -17,6 +17,5 @@ branches:
     - master
     - /release/.*/
     - /hotfix/.*/
-    - appveyor
 
 image: Visual Studio 2017
