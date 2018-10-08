@@ -2,9 +2,7 @@
 #  Build Script                   #
 #---------------------------------#
 build_script:
-  -ps: >-
-    cd .\build
-    .\build.ps1 -Target AppVeyor
+  -ps: .\build.ps1 -Target AppVeyor
 
 # Tests
 test: off
@@ -20,3 +18,5 @@ branches:
     - /release/.*/
     - /hotfix/.*/
     - appveyor
+
+image: Visual Studio 2017
