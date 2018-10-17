@@ -19,7 +19,7 @@ namespace Cake.Systemctl.Runners
 
         public List<Models.Unit> Units { get; private set; }
 
-        protected override void InternalRun(ListUnitsSettings settings)
+        protected override ProcessArgumentBuilder GetArguments(ListUnitsSettings settings)
         {
             var arguments = new ProcessArgumentBuilder()
                 .Append("list-units");
@@ -30,15 +30,12 @@ namespace Cake.Systemctl.Runners
 
             if (!string.IsNullOrWhiteSpace(settings.Type)) arguments.Append($"--type={settings.Type}");
 
-            Run(settings, arguments, new ProcessSettings {RedirectStandardOutput = true, RedirectStandardError = true},
-                Handle);
+            return arguments;
         }
 
-        private void Handle(IProcess process)
+        protected override void Handle(IEnumerable<string> output)
         {
-            var standardOutput = process.GetStandardOutput();
-
-            Units = standardOutput
+            Units = output
                 .Select(line => line
                     .Split(' ')
                     .Where(s => !string.IsNullOrWhiteSpace(s))

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Cake.Core;
 using Cake.Core.IO;
 using Cake.Core.Tooling;
@@ -15,17 +16,22 @@ namespace Cake.Systemctl.Runners.Unit
 
         protected abstract string UnitCommand { get; }
 
-        protected override void InternalRun(UnitSettings settings)
+        protected override ProcessArgumentBuilder GetArguments(UnitSettings settings)
         {
-            var builder = new ProcessArgumentBuilder()
+            var arguments = new ProcessArgumentBuilder()
                 .Append(UnitCommand);
 
             if (string.IsNullOrWhiteSpace(settings.UnitName))
                 throw new ArgumentNullException(nameof(settings.UnitName), "The name of unit should be specified");
 
-            builder.Append(settings.UnitName);
+            arguments.Append(settings.UnitName);
 
-            Run(settings, builder);
+            return arguments;
+        }
+
+        protected override void Handle(IEnumerable<string> output)
+        {
+            
         }
     }
 }

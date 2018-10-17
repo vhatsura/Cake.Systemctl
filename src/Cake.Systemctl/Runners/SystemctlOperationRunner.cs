@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Cake.Core;
 using Cake.Core.IO;
 using Cake.Core.Tooling;
+using Cake.Systemctl.Exceptions;
 using Cake.Systemctl.Settings;
 
 namespace Cake.Systemctl.Runners
@@ -10,7 +12,8 @@ namespace Cake.Systemctl.Runners
     public abstract class SystemctlOperationRunner<TSettings> : Tool<TSettings>
         where TSettings : SystemctlOperationSettings
     {
-        protected SystemctlOperationRunner(IFileSystem fileSystem, ICakeEnvironment environment, IProcessRunner processRunner,
+        protected SystemctlOperationRunner(IFileSystem fileSystem, ICakeEnvironment environment,
+            IProcessRunner processRunner,
             IToolLocator tools) : base(fileSystem, environment, processRunner, tools)
         {
             Platform = environment.Platform;
@@ -34,9 +37,28 @@ namespace Cake.Systemctl.Runners
 
             if (!Platform.IsUnix()) throw new PlatformNotSupportedException();
 
-            InternalRun(settings);
+            var arguments = GetArguments(settings);
+
+            Run(settings, arguments, new ProcessSettings {RedirectStandardOutput = true, RedirectStandardError = true},
+                Handle);
         }
 
-        protected abstract void InternalRun(TSettings settings);
+        protected abstract ProcessArgumentBuilder GetArguments(TSettings settings);
+
+        private void Handle(IProcess process)
+        {
+            var exitCode = process.GetExitCode();
+            var errorOutput = process.GetStandardError().ToList();
+            var output = process.GetStandardOutput().ToList();
+
+            if (errorOutput.Any())
+            {
+                throw new SystemctlException(exitCode, errorOutput);
+            }
+            
+            Handle(output);
+        }
+
+        protected abstract void Handle(IEnumerable<string> standardOutput);
     }
 }

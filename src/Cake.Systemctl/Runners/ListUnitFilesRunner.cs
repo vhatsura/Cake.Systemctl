@@ -20,22 +20,19 @@ namespace Cake.Systemctl.Runners
 
         public List<UnitFile> UnitFiles { get; private set; }
 
-        protected override void InternalRun(ListUnitFilesSettings settings)
+        protected override ProcessArgumentBuilder GetArguments(ListUnitFilesSettings settings)
         {
             var arguments = new ProcessArgumentBuilder()
                 .Append("list-unit-files");
 
             if (!string.IsNullOrWhiteSpace(settings.State)) arguments.Append($"--state={settings.State}");
 
-            Run(settings, arguments, new ProcessSettings {RedirectStandardOutput = true, RedirectStandardError = true},
-                Handle);
+            return arguments;
         }
 
-        private void Handle(IProcess process)
+        protected override void Handle(IEnumerable<string> output)
         {
-            var standardOutput = process.GetStandardOutput();
-
-            UnitFiles = standardOutput
+            UnitFiles = output
                 .Select(line => line
                     .Split(' ')
                     .Where(s => !string.IsNullOrWhiteSpace(s))
