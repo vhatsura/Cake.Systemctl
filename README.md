@@ -65,6 +65,19 @@ Task("List-Unit-Files")
             }
         );
     });
+
+Task("Show")
+    .Description("Show properties of the unit")
+    .Does(() =>
+    {
+        Systemctl.ShowUnit(
+            new ShowUnitSettings
+            {
+                UnitName = "Example",
+                Properties = new List<string> { "LoadState", "ActiveState" }
+            }
+        )
+    });
 ```
 
 ## License

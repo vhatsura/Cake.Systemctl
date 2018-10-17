@@ -29,7 +29,7 @@ namespace Cake.Systemctl
         }
 
         /// <summary>
-        ///     Show properties of of unit
+        ///     Show properties of the unit
         /// </summary>
         /// <param name="settings">The settings</param>
         /// <returns>A dictionary of property names and values of unit</returns>
