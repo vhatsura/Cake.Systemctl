@@ -7,15 +7,4 @@ build_script:
 # Tests
 test: off
 
-#---------------------------------#
-#        Branches to build        #
-#---------------------------------#
-branches:
-  # Whitelist
-  only:
-    - develop
-    - master
-    - /release/.*/
-    - /hotfix/.*/
-
 image: Visual Studio 2017
