@@ -1,13 +1,11 @@
 using Cake.Core;
-using Cake.Core.IO;
-using Cake.Core.Tooling;
+using Cake.Systemctl.Settings.Unit;
 
 namespace Cake.Systemctl.Runners.Unit
 {
-    public class StopUnitRunner : UnitRunner
+    public class StopUnitRunner : UnitRunner<UnitSettings>
     {
-        public StopUnitRunner(IFileSystem fileSystem, ICakeEnvironment environment, IProcessRunner processRunner,
-            IToolLocator tools) : base(fileSystem, environment, processRunner, tools)
+        public StopUnitRunner(ICakeContext context) : base(context)
         {
         }
 

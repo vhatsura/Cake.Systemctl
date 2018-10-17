@@ -12,7 +12,12 @@ namespace Cake.Systemctl.Runners
     public abstract class SystemctlOperationRunner<TSettings> : Tool<TSettings>
         where TSettings : SystemctlOperationSettings
     {
-        protected SystemctlOperationRunner(IFileSystem fileSystem, ICakeEnvironment environment,
+        protected SystemctlOperationRunner(ICakeContext context)
+            : this(context.FileSystem, context.Environment, context.ProcessRunner, context.Tools)
+        {
+        }
+
+        private SystemctlOperationRunner(IFileSystem fileSystem, ICakeEnvironment environment,
             IProcessRunner processRunner,
             IToolLocator tools) : base(fileSystem, environment, processRunner, tools)
         {
@@ -55,7 +60,7 @@ namespace Cake.Systemctl.Runners
             {
                 throw new SystemctlException(exitCode, errorOutput);
             }
-            
+
             Handle(output);
         }
 

@@ -2,21 +2,20 @@ using System;
 using System.Collections.Generic;
 using Cake.Core;
 using Cake.Core.IO;
-using Cake.Core.Tooling;
-using Cake.Systemctl.Settings;
+using Cake.Systemctl.Settings.Unit;
 
 namespace Cake.Systemctl.Runners.Unit
 {
-    public abstract class UnitRunner : SystemctlOperationRunner<UnitSettings>
+    public abstract class UnitRunner<TSettings> : SystemctlOperationRunner<TSettings>
+        where TSettings : UnitSettings
     {
-        protected UnitRunner(IFileSystem fileSystem, ICakeEnvironment environment, IProcessRunner processRunner,
-            IToolLocator tools) : base(fileSystem, environment, processRunner, tools)
+        protected UnitRunner(ICakeContext context) : base(context)
         {
         }
 
         protected abstract string UnitCommand { get; }
 
-        protected override ProcessArgumentBuilder GetArguments(UnitSettings settings)
+        protected override ProcessArgumentBuilder GetArguments(TSettings settings)
         {
             var arguments = new ProcessArgumentBuilder()
                 .Append(UnitCommand);
@@ -31,7 +30,6 @@ namespace Cake.Systemctl.Runners.Unit
 
         protected override void Handle(IEnumerable<string> output)
         {
-            
         }
     }
 }

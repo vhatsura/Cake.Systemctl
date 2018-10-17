@@ -1,4 +1,4 @@
-namespace Cake.Systemctl.Settings
+namespace Cake.Systemctl.Settings.Unit
 {
     /// <summary>
     ///     Settings for commands with unit
