@@ -12,6 +12,7 @@ namespace Cake.Systemctl
     [CakeAliasCategory("Systemctl")]
     [CakeNamespaceImport("Cake.Systemctl.Models")]
     [CakeNamespaceImport("Cake.Systemctl.Settings")]
+    [CakeNamespaceImport("Cake.Systemctl.Settings.Unit")]
     [CakeNamespaceImport("Cake.Systemctl.Exceptions")]
     public static class SystemctlAliases
     {

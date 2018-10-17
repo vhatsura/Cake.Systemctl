@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using System.Linq;
 using Cake.Core;
 using Cake.Core.IO;
-using Cake.Core.Tooling;
 using Cake.Systemctl.Models;
 using Cake.Systemctl.Settings;
 
@@ -13,8 +12,7 @@ namespace Cake.Systemctl.Runners
     /// </summary>
     public class ListUnitFilesRunner : SystemctlOperationRunner<ListUnitFilesSettings>
     {
-        public ListUnitFilesRunner(IFileSystem fileSystem, ICakeEnvironment environment, IProcessRunner processRunner,
-            IToolLocator tools) : base(fileSystem, environment, processRunner, tools)
+        public ListUnitFilesRunner(ICakeContext context) : base(context)
         {
         }
 

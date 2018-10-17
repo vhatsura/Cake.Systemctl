@@ -1,13 +1,11 @@
 using Cake.Core;
-using Cake.Core.IO;
-using Cake.Core.Tooling;
+using Cake.Systemctl.Settings.Unit;
 
 namespace Cake.Systemctl.Runners.Unit
 {
-    public class StartUnitRunner : UnitRunner
+    public class StartUnitRunner : UnitRunner<UnitSettings>
     {
-        public StartUnitRunner(IFileSystem fileSystem, ICakeEnvironment environment, IProcessRunner processRunner,
-            IToolLocator tools) : base(fileSystem, environment, processRunner, tools)
+        public StartUnitRunner(ICakeContext context) : base(context)
         {
         }
 

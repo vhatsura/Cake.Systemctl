@@ -32,8 +32,7 @@ namespace Cake.Systemctl
         /// <returns>A list of units.</returns>
         public List<Unit> ListUnits(ListUnitsSettings settings)
         {
-            var runner = new ListUnitsRunner(Context.FileSystem, Context.Environment, Context.ProcessRunner,
-                Context.Tools);
+            var runner = new ListUnitsRunner(Context);
 
             runner.Run(settings);
 
@@ -57,8 +56,7 @@ namespace Cake.Systemctl
         [CakeMethodAlias]
         public List<UnitFile> ListUnitFiles(ListUnitFilesSettings settings)
         {
-            var runner = new ListUnitFilesRunner(Context.FileSystem, Context.Environment, Context.ProcessRunner,
-                Context.Tools);
+            var runner = new ListUnitFilesRunner(Context);
 
             runner.Run(settings);
 

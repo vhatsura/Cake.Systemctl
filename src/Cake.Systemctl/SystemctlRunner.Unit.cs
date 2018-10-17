@@ -1,5 +1,6 @@
+using System.Collections.Generic;
 using Cake.Systemctl.Runners.Unit;
-using Cake.Systemctl.Settings;
+using Cake.Systemctl.Settings.Unit;
 
 namespace Cake.Systemctl
 {
@@ -11,8 +12,7 @@ namespace Cake.Systemctl
         /// <param name="settings">The settings of unit to start.</param>
         public void StartUnit(UnitSettings settings)
         {
-            var runner = new StartUnitRunner(Context.FileSystem, Context.Environment, Context.ProcessRunner,
-                Context.Tools);
+            var runner = new StartUnitRunner(Context);
 
             runner.Run(settings);
         }
@@ -23,10 +23,23 @@ namespace Cake.Systemctl
         /// <param name="settings">The settings of unit to stop.</param>
         public void StopUnit(UnitSettings settings)
         {
-            var runner = new StopUnitRunner(Context.FileSystem, Context.Environment, Context.ProcessRunner,
-                Context.Tools);
+            var runner = new StopUnitRunner(Context);
 
             runner.Run(settings);
-        }  
+        }
+
+        /// <summary>
+        ///     Show properties of of unit
+        /// </summary>
+        /// <param name="settings">The settings</param>
+        /// <returns>A dictionary of property names and values of unit</returns>
+        public IDictionary<string, string> ShowUnit(ShowUnitSettings settings)
+        {
+            var runner = new ShowUnitRunner(Context);
+
+            runner.Run(settings);
+
+            return runner.Properties;
+        }
     }
 }
