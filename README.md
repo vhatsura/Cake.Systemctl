@@ -78,6 +78,25 @@ Task("Show")
             }
         )
     });
+
+Task("Reload-Daemon-OnDemand")
+    .Description("Reload systemd daemon if it's neccessary")
+    .Does(() =>
+    {
+        var properties = Systemctl.ShowUnit(
+            new ShowUnitSettings
+            {
+                UnitName = "Example",
+                Properties = new List<string> { "NeedDaemonReload" }
+            }
+        );
+
+        if (properties.TryGetValue("NeedDaemonReload", out var need)
+            && need.Equals("yes", StringComparison.OrdinalIgnoreCase))
+        {
+            Systemctl.DaemonReload();
+        }
+    });
 ```
 
 ## License
