@@ -11,36 +11,47 @@ Cake AddIn for managing services with systemctl service manager
 ## Table of Contents
 
 1. [Documentation](https://github.com/vhatsura/Cake.Systemctl#documentation)
-2. [Example](https://github.com/vhatsura/Cake.Systemctl#example)
+2. [Examples](https://github.com/vhatsura/Cake.Systemctl#examples)
+    - [List unit files](https://github.com/vhatsura/Cake.Systemctl#list-unit-files)
+    - [List units](https://github.com/vhatsura/Cake.Systemctl#list-units)
+    - [Work with unit](https://github.com/vhatsura/Cake.Systemctl#work-with-unit)
+        - [Start unit](https://github.com/vhatsura/Cake.Systemctl#start-unit)
+        - [Stop unit](https://github.com/vhatsura/Cake.Systemctl#stop-unit)
+        - [Show unit properties](https://github.com/vhatsura/Cake.Systemctl#show-unit-properties)
+    - [Daemon reload](https://github.com/vhatsura/Cake.Systemctl#daemon-reload)
 3. [License](https://github.com/vhatsura/Cake.Systemctl#license)
 
 ## Documentation
 
 You can read the latest documentation at [cakebuild.net](https://cakebuild.net/dsl/systemctl).
 
-## Example
+## Examples
+
+Add Cake.Systemctl support to you cake script
 
 ```cake
 #addin Cake.Systemctl
+```
 
-Task("Start")
-    .Description("Start (activate) unit")
+### List unit files
+
+```cale
+Task("List-Unit-Files")
+    .Description("List unit files installed on the system")
     .Does(() =>
     {
-        Systemctl.StartUnit(
-            new UnitSettings { UnitName = "Example" }
+        Systemctl.ListUnitFiles(
+            new ListUnitFilesSettings
+            {
+                State = "disabled"
+            }
         );
     });
+```
 
-Task("Stop")
-    .Description("Stop (deactivate) unit")
-    .Does(() =>
-    {
-        Systemctl.StopUnit(
-            new UnitSettings { UnitName = "Example" }
-        );
-    });
+### List units
 
+```cake
 Task("List-Units")
     .Description("List units that currently was loaded to memory")
     .Does(() =>
@@ -53,19 +64,39 @@ Task("List-Units")
             }
         );
     });
+```
 
-Task("List-Unit-Files")
-    .Description("List unit files installed on the system")
+### Work with unit
+
+#### Start unit
+
+```cake
+Task("Start")
+    .Description("Start (activate) unit")
     .Does(() =>
     {
-        Systemctl.ListUnitFiles(
-            new ListUnitFilesSettings
-            {
-                State = "disabled"
-            }
+        Systemctl.StartUnit(
+            new UnitSettings { UnitName = "Example" }
         );
     });
+```
 
+#### Stop Unit
+
+```cake
+Task("Stop")
+    .Description("Stop (deactivate) unit")
+    .Does(() =>
+    {
+        Systemctl.StopUnit(
+            new UnitSettings { UnitName = "Example" }
+        );
+    });
+```
+
+#### Show unit properties
+
+```cake
 Task("Show")
     .Description("Show properties of the unit")
     .Does(() =>
@@ -78,7 +109,11 @@ Task("Show")
             }
         )
     });
+```
 
+### Daemon reload
+
+```cake
 Task("Reload-Daemon-OnDemand")
     .Description("Reload systemd daemon if it's neccessary")
     .Does(() =>
