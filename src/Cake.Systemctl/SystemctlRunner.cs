@@ -53,7 +53,6 @@ namespace Cake.Systemctl
         /// </summary>
         /// <param name="settings">The settings</param>
         /// <returns>A list of unit files.</returns>
-        [CakeMethodAlias]
         public List<UnitFile> ListUnitFiles(ListUnitFilesSettings settings)
         {
             var runner = new ListUnitFilesRunner(Context);
@@ -61,6 +60,18 @@ namespace Cake.Systemctl
             runner.Run(settings);
 
             return runner.UnitFiles;
+        }
+
+        /// <summary>
+        ///    Reload systemd manager configuration. This will rerun all generators, reload all unit files, 
+        /// and recreate the entire dependency tree. While the daemon is being reloaded, all sockets systemd 
+        /// listens on behalf of user configuration will stay accessible. 
+        /// </summary>
+        public void DaemonReload()
+        {
+            var runner = new DaemonReloadRunner(Context);
+            
+            runner.Run(new SystemctlOperationSettings());
         }
     }
 }
