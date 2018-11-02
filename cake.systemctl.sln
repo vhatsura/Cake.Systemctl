@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cake.Systemctl", "src\Cake.Systemctl\Cake.Systemctl.csproj", "{50B1A15A-8FD3-4771-B589-B5ABCB935994}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{62FEE692-303C-4172-8545-B267B57FB285}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{EACFDC1B-F3FE-4171-A6B1-A0FEAD7F2B24}"
+ProjectSection(SolutionItems) = preProject
+	build\build.cake = build\build.cake
+	build\build.ps1 = build\build.ps1
+	build\build.sh = build\build.sh
+EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{50B1A15A-8FD3-4771-B589-B5ABCB935994}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50B1A15A-8FD3-4771-B589-B5ABCB935994}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50B1A15A-8FD3-4771-B589-B5ABCB935994}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50B1A15A-8FD3-4771-B589-B5ABCB935994}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{EACFDC1B-F3FE-4171-A6B1-A0FEAD7F2B24} = {62FEE692-303C-4172-8545-B267B57FB285}
+	EndGlobalSection
+EndGlobal

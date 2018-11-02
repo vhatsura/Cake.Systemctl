@@ -1,0 +1,3 @@
+# Shell scripts
+*.sh eol=lf
+*.service eol=lf

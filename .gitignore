@@ -328,3 +328,9 @@ ASALocalRun/
 
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
+
+# Cake.Recipe
+.dotnet/*
+BuildArtifacts/*
+build/tools/*
+tools/*
