@@ -1,6 +1,6 @@
 # Cake.Systemctl
 
-[![NuGet](https://img.shields.io/nuget/v/Cake.Systemctl.svg)](https://www.nuget.org/packages/Cake.Systemctl)
+[![NuGet Badge](https://buildstats.info/nuget/Cake.Systemctl)](https://www.nuget.org/packages/Cake.Systemctl)
 [![MyGet](https://img.shields.io/myget/cake-systemctl/vpre/Cake.Systemctl.svg?label=myget)](https://www.myget.org/gallery/cake-systemctl)
 
 Cake AddIn for managing services with systemctl service manager
