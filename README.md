@@ -6,7 +6,6 @@
 An addin for the Cake Build System to manage services via systemctl service manager.
 
 [![Build Status](https://dev.azure.com/vadimhatsura/cake.systemctl/_apis/build/status/vhatsura.Cake.Systemctl?&branchName=develop)](https://dev.azure.com/vadimhatsura/cake.systemctl/_build/latest?definitionId=1)
-[![AppVeyor branch](https://img.shields.io/appveyor/ci/vhatsura/cake-systemctl/develop.svg)](https://ci.appveyor.com/project/vhatsura/cake-systemctl/branch/develop)  
 
 ## Table of Contents
 
