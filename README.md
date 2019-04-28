@@ -34,7 +34,7 @@ Add Cake.Systemctl support to you cake script
 
 ### List unit files
 
-```cale
+```cake
 Task("List-Unit-Files")
     .Description("List unit files installed on the system")
     .Does(() =>
