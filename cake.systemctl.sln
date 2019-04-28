@@ -6,9 +6,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{EACFDC1B-F3FE-4171-A6B1-A0FEAD7F2B24}"
 ProjectSection(SolutionItems) = preProject
-	build\build.cake = build\build.cake
-	build\build.ps1 = build\build.ps1
-	build\build.sh = build\build.sh
+	build.cake = build.cake
+	build.ps1 = build.ps1
+	build.sh = build.sh
+	azure-pipelines.yml = azure-pipelines.yml
 EndProjectSection
 EndProject
 Global
