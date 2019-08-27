@@ -8,8 +8,10 @@
         <PackageTags>Cake, Script, Build, Systemctl, Linux, Deployment, Service Management</PackageTags>
         <Copyright>Copyright (c) 2018 - Present</Copyright>
         <PackageProjectUrl>https://github.com/vhatsura/Cake.Systemctl</PackageProjectUrl>
-        <PackageLicenseUrl>https://github.com/vhatsura/Cake.Systemctl/blob/master/LICENSE</PackageLicenseUrl>
         <PackageIconUrl>https://cdn.jsdelivr.net/gh/cake-contrib/graphics/png/cake-contrib-medium.png</PackageIconUrl>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <RepositoryUrl>https://github.com/vhatsura/Cake.Systemctl.git</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
         <Company/>
         <Product/>
     </PropertyGroup>
