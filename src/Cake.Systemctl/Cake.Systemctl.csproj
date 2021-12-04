@@ -1,7 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>netstandard2.0</TargetFramework>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <Authors>Vadim Hatsura</Authors>
         <Description>Cake AddIn for managing services with systemctl service manager</Description>
@@ -12,12 +11,13 @@
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <RepositoryUrl>https://github.com/vhatsura/Cake.Systemctl.git</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
-        <Company/>
-        <Product/>
+        <Company />
+        <Product />
     
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <TargetFrameworks>net5.0;net6.0;netcoreapp3.1</TargetFrameworks>
   </PropertyGroup>
 
   <ItemGroup>
@@ -26,8 +26,8 @@
 
 
     <ItemGroup>
-        <PackageReference Include="Cake.Common" Version="0.33.0" PrivateAssets="All"/>
-        <PackageReference Include="Cake.Core" Version="0.33.0" PrivateAssets="All"/>
+        <PackageReference Include="Cake.Common" Version="2.0.0" PrivateAssets="All" />
+        <PackageReference Include="Cake.Core" Version="2.0.0" PrivateAssets="All" />
     </ItemGroup>
 
 </Project>
