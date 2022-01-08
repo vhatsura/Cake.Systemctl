@@ -17,6 +17,7 @@
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <UseFullSemVerForNuGet>false</UseFullSemVerForNuGet>
     <TargetFrameworks>net5.0;net6.0;netcoreapp3.1</TargetFrameworks>
   </PropertyGroup>
 
