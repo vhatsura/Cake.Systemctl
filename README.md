@@ -1,9 +1,6 @@
 # Cake.Systemctl
 
-[![Build status](https://ci.appveyor.com/api/projects/status/c07g64c90p9frh90/branch/master?svg=true)](https://ci.appveyor.com/project/vhatsura/sourcelyzer/branch/master)
-[![Build Status](https://dev.azure.com/vadimhatsura/cake.systemctl/_apis/build/status/vhatsura.Cake.Systemctl?&branchName=develop)](https://dev.azure.com/vadimhatsura/cake.systemctl/_build/latest?definitionId=1)
 [![NuGet Badge](https://buildstats.info/nuget/Cake.Systemctl)](https://www.nuget.org/packages/Cake.Systemctl)
-[![MyGet](https://img.shields.io/myget/cake-systemctl/vpre/Cake.Systemctl.svg?label=myget)](https://www.myget.org/gallery/cake-systemctl)
 
 An addin for the Cake Build System to manage services via systemctl service manager.
 
